@@ -7,7 +7,7 @@ async function test() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ champion: 'ahri' })
     });
-    const data = await res.json();
+    const data = (await res.json()) as any;
     console.log(data?.data?.markdown?.substring(0, 1000));
   } catch (e) {
     console.error(e);

@@ -1,4 +1,4 @@
-export type PageType = 'dashboard' | 'match-history' | 'ai-coach' | 'settings';
+export type PageType = 'simulator' | 'match-history' | 'ai-coach' | 'settings';
 
 export interface Spell {
   id: string;

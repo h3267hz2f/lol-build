@@ -118,7 +118,7 @@ export function Dashboard() {
     }
   }, [defenderChamp?.key, defenderChamp?.id]);
 
-  const [centerTab, setCenterTab] = useState<'shop' | 'stats' | 'combo' | 'meta' | 'builder'>('shop');
+  const [centerTab, setCenterTab] = useState<'shop' | 'stats' | 'combo' | 'builder'>('shop');
   const [currentGold, setCurrentGold] = useState<number>(3000);
   const [opggAnalytics, setOpggAnalytics] = useState<any>(null);
   const [isOpggLoading, setIsOpggLoading] = useState(false);
@@ -163,7 +163,7 @@ export function Dashboard() {
     return `${item.name}\n${item.plaintext || ''}\n\n${cleanDesc}`.trim();
   };
 
-  const SafeItemTooltip = ({ itemId, children }: { itemId: string, children: React.ReactNode }) => {
+  const SafeItemTooltip = ({ itemId, children }: { itemId: string, children: React.ReactNode, key?: any }) => {
     const item = ITEMS?.find((i: any) => i.id === itemId);
     if (!item) return <>{children}</>;
     return <ItemTooltip item={item}>{children}</ItemTooltip>;
@@ -1140,12 +1140,6 @@ export function Dashboard() {
                   <span className={cn("px-1 py-0.5 rounded-sm text-[9px] font-black italic tracking-tighter leading-none h-[14px]", centerTab === 'builder' ? "bg-white text-[#5383E8]" : "bg-gray-700 text-gray-400")}>OP.GG</span>
                   智能推荐
                 </button>
-                <button 
-                  onClick={() => setCenterTab('meta')} 
-                  className={cn("flex-1 py-3 transition-colors", centerTab === 'meta' ? "text-[#a855f7] bg-[#a855f7]/10 border-b-2 border-[#a855f7]" : "text-text-secondary hover:bg-white/5")}
-                >
-                  装备版本大数据
-                </button>
              </div>
              
              <div className="flex-1 min-h-0 relative p-4">
@@ -1779,7 +1773,7 @@ export function Dashboard() {
                     </div>
                  </div>
                )}
-               {centerTab === 'meta' && (
+               {false && (
                  <div className="h-full overflow-y-auto custom-scrollbar flex flex-col gap-6">
                     <div>
                       <h2 className="font-sans font-semibold text-[13px] text-text-secondary uppercase tracking-wider mb-4 border-b border-white/10 pb-2">装备胜率趋势 (Meta Analytics)</h2>
@@ -2377,7 +2371,7 @@ function GlobalSpellTooltip({ tooltip }: { tooltip: { spell: any, tencentData: a
      }
   }
 
-  const desc = tencentSpell ? tencentSpell.description : spell.description;
+  const desc = tencentSpell ? tencentSpell.description : (spell?.description || '');
 
   // Position tooltip relative to mouse to prevent cutoff
   const xOffset = 15;

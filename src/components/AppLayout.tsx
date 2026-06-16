@@ -11,7 +11,7 @@ interface AppLayoutProps {
 
 export function AppLayout({ children, currentPage, onPageChange }: AppLayoutProps) {
   const navItems = [
-    { id: 'dashboard', label: 'Dashboard', icon: Home },
+    { id: 'simulator', label: 'Build Simulator', icon: Home },
     { id: 'match-history', label: 'Match History', icon: History },
     { id: 'ai-coach', label: 'AI Coach', icon: Brain },
     { id: 'settings', label: 'Settings', icon: Settings },
