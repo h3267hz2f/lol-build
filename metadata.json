@@ -1,0 +1,6 @@
+{
+  "name": "LoL Build Simulator",
+  "description": "League of Legends item build simulator with stats, DPS modeling, and real-time meta trends.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
